@@ -87,6 +87,7 @@ public interface IMareHub
     Task<List<GroupPairFullInfoDto>> GroupsGetUsersInGroup(GroupDto group);
 
     Task GroupUnbanUser(GroupPairDto groupPair);
+    Task<int> GroupPrune(GroupDto group, int days, bool execute);
 
     Task UserAddPair(UserDto user);
 
