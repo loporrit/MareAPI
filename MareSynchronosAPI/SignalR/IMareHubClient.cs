@@ -1,5 +1,6 @@
 ﻿using MareSynchronos.API.Data.Enum;
 using MareSynchronos.API.Dto;
+using MareSynchronos.API.Dto.Chat;
 using MareSynchronos.API.Dto.Group;
 using MareSynchronos.API.Dto.User;
 
@@ -10,6 +11,8 @@ public interface IMareHubClient : IMareHub
     void OnDownloadReady(Action<Guid> act);
 
     void OnGroupChangePermissions(Action<GroupPermissionDto> act);
+
+    void OnGroupChatMsg(Action<GroupChatMsgDto> groupChatMsgDto);
 
     void OnGroupDelete(Action<GroupDto> act);
 
@@ -30,6 +33,8 @@ public interface IMareHubClient : IMareHub
     void OnUpdateSystemInfo(Action<SystemInfoDto> act);
 
     void OnUserAddClientPair(Action<UserPairDto> act);
+
+    void OnUserChatMsg(Action<UserChatMsgDto> chatMsgDto);
 
     void OnUserReceiveCharacterData(Action<OnlineUserCharaDataDto> act);
 

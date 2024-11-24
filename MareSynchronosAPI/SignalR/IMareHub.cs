@@ -1,5 +1,7 @@
-﻿using MareSynchronos.API.Data.Enum;
+﻿using MareSynchronos.API.Data;
+using MareSynchronos.API.Data.Enum;
 using MareSynchronos.API.Dto;
+using MareSynchronos.API.Dto.Chat;
 using MareSynchronos.API.Dto.Group;
 using MareSynchronos.API.Dto.User;
 
@@ -15,6 +17,8 @@ public interface IMareHub
     Task Client_DownloadReady(Guid requestId);
 
     Task Client_GroupChangePermissions(GroupPermissionDto groupPermission);
+
+    Task Client_GroupChatMsg(GroupChatMsgDto groupChatMsgDto);
 
     Task Client_GroupDelete(GroupDto groupDto);
 
@@ -35,6 +39,8 @@ public interface IMareHub
     Task Client_UpdateSystemInfo(SystemInfoDto systemInfo);
 
     Task Client_UserAddClientPair(UserPairDto dto);
+
+    Task Client_UserChatMsg(UserChatMsgDto chatMsgDto);
 
     Task Client_UserReceiveCharacterData(OnlineUserCharaDataDto dataDto);
 
@@ -64,6 +70,8 @@ public interface IMareHub
 
     Task<bool> GroupChangePassword(GroupPasswordDto groupPassword);
 
+    Task GroupChatSendMsg(GroupDto group, ChatMessage message);
+
     Task GroupClear(GroupDto group);
 
     Task<GroupPasswordDto> GroupCreate();
@@ -90,6 +98,8 @@ public interface IMareHub
     Task<int> GroupPrune(GroupDto group, int days, bool execute);
 
     Task UserAddPair(UserDto user);
+
+    Task UserChatSendMsg(UserDto user, ChatMessage message);
 
     Task UserDelete();
 
